@@ -8,21 +8,107 @@ const mensaje = document.getElementById("mensaje");
 const lista = document.getElementById("listaProyectos");
 const total = document.getElementById("total");
 
+const errorNombre = document.getElementById("errorNombre");
+const errorDescripcion = document.getElementById("errorDescripcion");
+const errorCategoria = document.getElementById("errorCategoria");
+
 let contador = 0;
+
+/* =========================
+   VALIDACIONES
+========================= */
+
+function validarNombre() {
+
+    if (nombre.value.trim().length < 3) {
+
+        nombre.classList.add("is-invalid");
+        nombre.classList.remove("is-valid");
+
+        errorNombre.textContent = "Debe ingresar mínimo 3 caracteres.";
+
+        return false;
+    }
+
+    nombre.classList.remove("is-invalid");
+    nombre.classList.add("is-valid");
+
+    errorNombre.textContent = "";
+
+    return true;
+}
+
+function validarDescripcion() {
+
+    if (descripcion.value.trim().length < 10) {
+
+        descripcion.classList.add("is-invalid");
+        descripcion.classList.remove("is-valid");
+
+        errorDescripcion.textContent =
+        "La descripción debe tener al menos 10 caracteres.";
+
+        return false;
+    }
+
+    descripcion.classList.remove("is-invalid");
+    descripcion.classList.add("is-valid");
+
+    errorDescripcion.textContent = "";
+
+    return true;
+}
+
+function validarCategoria() {
+
+    if (categoria.value === "") {
+
+        categoria.classList.add("is-invalid");
+        categoria.classList.remove("is-valid");
+
+        errorCategoria.textContent =
+        "Seleccione una categoría.";
+
+        return false;
+    }
+
+    categoria.classList.remove("is-invalid");
+    categoria.classList.add("is-valid");
+
+    errorCategoria.textContent = "";
+
+    return true;
+}
+
+/* =========================
+   EVENTOS EN TIEMPO REAL
+========================= */
+
+nombre.addEventListener("input", validarNombre);
+descripcion.addEventListener("input", validarDescripcion);
+categoria.addEventListener("change", validarCategoria);
+
+nombre.addEventListener("blur", validarNombre);
+descripcion.addEventListener("blur", validarDescripcion);
+categoria.addEventListener("blur", validarCategoria);
+
+/* =========================
+   SUBMIT
+========================= */
 
 formulario.addEventListener("submit", function(event){
 
     event.preventDefault();
 
     if (
-        nombre.value.trim() === "" ||
-        descripcion.value.trim() === "" ||
-        categoria.value === ""
+        !validarNombre() ||
+        !validarDescripcion() ||
+        !validarCategoria()
     ) {
 
         mensaje.innerHTML = `
         <div class="alert alert-danger">
-            Todos los campos son obligatorios.
+            Corrija los errores antes de registrar.
         </div>`;
 
         return;
@@ -54,8 +140,13 @@ formulario.addEventListener("submit", function(event){
     boton.className = "btn btn-danger btn-sm mt-2";
 
     boton.addEventListener("click", function () {
+
         card.remove();
-        contador--;
+
+        if (contador > 0) {
+            contador--;
+        }
+
         total.textContent = contador;
     });
 
@@ -67,9 +158,20 @@ formulario.addEventListener("submit", function(event){
 
     lista.appendChild(card);
 
-    contador++;
-    total.textContent = contador;
+   card.remove();
+
+contador = lista.children.length;
+total.textContent = contador;
 
     formulario.reset();
 
+    nombre.classList.remove("is-valid", "is-invalid");
+    descripcion.classList.remove("is-valid", "is-invalid");
+    categoria.classList.remove("is-valid", "is-invalid");
+
+    errorNombre.textContent = "";
+    errorDescripcion.textContent = "";
+    errorCategoria.textContent = "";
+
+    mensaje.innerHTML = "";
 });

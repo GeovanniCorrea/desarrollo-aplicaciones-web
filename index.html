@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,87 +10,8 @@
 <!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<style>
-
-body{
-    font-family: Arial, sans-serif;
-    background-color: #ffffff;
-}
-
-/* HEADER */
-header{
-    background: linear-gradient(90deg, #0d6efd, #003b8b);
-    color: white;
-    text-align: center;
-    padding: 80px 20px;
-}
-
-header h1{
-    font-size: 3rem;
-    font-weight: bold;
-}
-
-header p{
-    font-size: 1.2rem;
-}
-
-/* SECCIONES */
-section{
-    margin-top: 80px;
-    margin-bottom: 80px;
-}
-
-/* TARJETAS */
-.card{
-    border: none;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    transition: transform 0.3s;
-}
-
-.card:hover{
-    transform: translateY(-5px);
-}
-
-/* IMAGEN */
-img{
-    border-radius: 10px;
-}
-
-/* ASIDE */
-aside{
-    background-color: white;
-    padding: 25px;
-    border-radius: 10px;
-    margin-top: 40px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-/* FOOTER */
-footer{
-    background-color: #212529;
-    color: white;
-    text-align: center;
-    padding: 25px;
-    margin-top: 40px;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-
-    header{
-        padding: 50px 15px;
-    }
-
-    header h1{
-        font-size: 2rem;
-    }
-
-    header p{
-        font-size: 1rem;
-    }
-}
-
-</style>
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
 
 </head>
 <body>
@@ -307,37 +229,70 @@ Registro de Proyectos
 <form id="formProyecto">
 
 <div class="mb-3">
-<label class="form-label">Nombre del Proyecto</label>
+
+<label class="form-label">
+Nombre del Proyecto
+</label>
+
 <input
 type="text"
 class="form-control"
 id="nombre"
 placeholder="Ingrese el nombre del proyecto">
+
+<div id="errorNombre" class="invalid-feedback"></div>
+
 </div>
 
 <div class="mb-3">
-<label class="form-label">Descripción</label>
+
+<label class="form-label">
+Descripción
+</label>
+
 <textarea
 class="form-control"
 id="descripcion"
 rows="3"
 placeholder="Ingrese la descripción"></textarea>
+
+<div id="errorDescripcion" class="invalid-feedback"></div>
+
 </div>
 
 <div class="mb-3">
-<label class="form-label">Categoría</label>
+
+<label class="form-label">
+Categoría
+</label>
 
 <select
 class="form-select"
 id="categoria">
 
-<option value="">Seleccione</option>
-<option>Edificación</option>
-<option>Carreteras</option>
-<option>Puentes</option>
-<option>Vivienda</option>
+<option value="">
+Seleccione
+</option>
+
+<option>
+Edificación
+</option>
+
+<option>
+Carreteras
+</option>
+
+<option>
+Puentes
+</option>
+
+<option>
+Vivienda
+</option>
 
 </select>
+
+<div id="errorCategoria" class="invalid-feedback"></div>
 
 </div>
 

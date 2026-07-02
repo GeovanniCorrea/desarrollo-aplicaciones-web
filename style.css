@@ -1,0 +1,77 @@
+body{
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+/* HEADER */
+header{
+    background: linear-gradient(90deg, #0d6efd, #003b8b);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+header h1{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+header p{
+    font-size: 1.2rem;
+}
+
+/* SECCIONES */
+section{
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+/* TARJETAS */
+.card{
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+}
+
+/* IMAGEN */
+img{
+    border-radius: 10px;
+}
+
+/* ASIDE */
+aside{
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 40px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+footer{
+    background-color: #212529;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+    header{
+        padding: 50px 15px;
+    }
+
+    header h1{
+        font-size: 2rem;
+    }
+
+    header p{
+        font-size: 1rem;
+    }
+}
