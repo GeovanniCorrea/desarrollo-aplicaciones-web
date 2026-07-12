@@ -1,9 +1,17 @@
+/* ==========================
+   ESTILOS GENERALES
+========================== */
+
 body{
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
+    background-color: #f8f9fa;
+    color: #333;
 }
 
-/* HEADER */
+/* ==========================
+   HEADER
+========================== */
+
 header{
     background: linear-gradient(90deg, #0d6efd, #003b8b);
     color: white;
@@ -20,48 +28,118 @@ header p{
     font-size: 1.2rem;
 }
 
-/* SECCIONES */
-section{
-    margin-top: 80px;
-    margin-bottom: 80px;
+/* ==========================
+   NAVBAR
+========================== */
+
+.navbar{
+    box-shadow: 0 2px 8px rgba(0,0,0,.2);
 }
 
-/* TARJETAS */
+/* ==========================
+   SECCIONES
+========================== */
+
+section{
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+/* ==========================
+   TARJETAS
+========================== */
+
 .card{
     border: none;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    transition: transform 0.3s;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.15);
+    transition: all .3s ease;
 }
 
 .card:hover{
     transform: translateY(-5px);
 }
 
-/* IMAGEN */
+/* ==========================
+   IMÁGENES
+========================== */
+
 img{
     border-radius: 10px;
 }
 
-/* ASIDE */
+/* ==========================
+   FORMULARIOS
+========================== */
+
+form{
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,.1);
+}
+
+/* ==========================
+   MENSAJES
+========================== */
+
+.alert{
+    margin-top: 20px;
+}
+
+/* ==========================
+   LISTA DE PROYECTOS
+========================== */
+
+#listaProyectos .card{
+    margin-bottom: 20px;
+}
+
+/* ==========================
+   ASIDE
+========================== */
+
 aside{
-    background-color: white;
+    background: white;
     padding: 25px;
     border-radius: 10px;
     margin-top: 40px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
 }
 
-/* FOOTER */
+/* ==========================
+   FOOTER
+========================== */
+
 footer{
     background-color: #212529;
     color: white;
     text-align: center;
     padding: 25px;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
-/* RESPONSIVE */
-@media(max-width:768px){
+footer p{
+    margin: 5px;
+}
+
+/* ==========================
+   BOTONES
+========================== */
+
+.btn{
+    transition: .3s;
+}
+
+.btn:hover{
+    transform: scale(1.03);
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width:768px){
 
     header{
         padding: 50px 15px;
@@ -74,4 +152,22 @@ footer{
     header p{
         font-size: 1rem;
     }
+
+    section{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+}
+
+@media (max-width:576px){
+
+    header h1{
+        font-size: 1.7rem;
+    }
+
+    form{
+        padding: 18px;
+    }
+
 }

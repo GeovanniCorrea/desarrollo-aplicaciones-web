@@ -16,20 +16,29 @@
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- ===================================== -->
+<!-- BASE.HTML - HEADER                    -->
+<!-- Esta sección podría formar parte de   -->
+<!-- una plantilla base.html               -->
+<!-- ===================================== -->
+
 <header>
     <h1>ConstructPro</h1>
     <p>Sistema de gestión y control de proyectos de construcción civil</p>
 </header>
 
-<!-- NAVBAR -->
+<!-- ===================================== -->
+<!-- BASE.HTML - NAVBAR                    -->
+<!-- ===================================== -->
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
 <div class="container">
 
 <a class="navbar-brand" href="#">ConstructPro</a>
 
-<button class="navbar-toggler"
+<button
+class="navbar-toggler"
 type="button"
 data-bs-toggle="collapse"
 data-bs-target="#menu">
@@ -55,6 +64,10 @@ data-bs-target="#menu">
 </li>
 
 <li class="nav-item">
+<a class="nav-link" href="#proyectos">Proyectos</a>
+</li>
+
+<li class="nav-item">
 <a class="nav-link" href="#contacto">Contacto</a>
 </li>
 
@@ -66,10 +79,16 @@ data-bs-target="#menu">
 
 </nav>
 
-<!-- MAIN -->
+<!-- ===================================== -->
+<!-- CONTENIDO PRINCIPAL                   -->
+<!-- Esta sección sería el bloque de       -->
+<!-- contenido dinámico de base.html       -->
+<!-- ===================================== -->
+
 <main class="container">
 
 <!-- INICIO -->
+
 <section id="inicio" class="text-center p-5">
 
 <h2>Inicio</h2>
@@ -88,6 +107,7 @@ Solicitar Información
 </section>
 
 <!-- QUIÉNES SOMOS -->
+
 <section id="quienes-somos">
 
 <h2 class="text-center mb-4">
@@ -134,92 +154,23 @@ decisiones, optimice recursos y contribuya al cumplimiento de plazos establecido
 </section>
 
 <!-- SERVICIOS -->
-<!-- SERVICIOS -->
+
 <section id="servicios">
 
 <h2 class="text-center mb-4">
 Servicios
 </h2>
 
-<div class="row">
+<!-- Contenido generado dinámicamente desde JavaScript -->
 
-<div class="col-md-4">
-
-<div class="card m-3">
-
-<div class="card-body text-center">
-
-<h5 class="card-title">
-Gestión de Proyectos
-</h5>
-
-<p class="card-text">
-Control integral y administración de obras civiles.
-</p>
-
-<a href="#" class="btn btn-primary">
-Ver más
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-md-4">
-
-<div class="card m-3">
-
-<div class="card-body text-center">
-
-<h5 class="card-title">
-Control de Recursos
-</h5>
-
-<p class="card-text">
-Gestión de materiales, maquinaria y personal.
-</p>
-
-<a href="#" class="btn btn-success">
-Ver más
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-md-4">
-
-<div class="card m-3">
-
-<div class="card-body text-center">
-
-<h5 class="card-title">
-Reportes Técnicos
-</h5>
-
-<p class="card-text">
-Generación automática de informes y seguimiento.
-</p>
-
-<a href="#" class="btn btn-warning">
-Ver más
-</a>
-
-</div>
-
-</div>
-
-</div>
+<div id="listaServicios" class="row">
 
 </div>
 
 </section>
 
 <!-- REGISTRO DE PROYECTOS -->
+
 <section id="proyectos">
 
 <h2 class="text-center mb-4">
@@ -274,21 +225,13 @@ id="categoria">
 Seleccione
 </option>
 
-<option>
-Edificación
-</option>
+<option>Edificación</option>
 
-<option>
-Carreteras
-</option>
+<option>Carreteras</option>
 
-<option>
-Puentes
-</option>
+<option>Puentes</option>
 
-<option>
-Vivienda
-</option>
+<option>Vivienda</option>
 
 </select>
 
@@ -299,7 +242,9 @@ Vivienda
 <button
 type="submit"
 class="btn btn-primary">
+
 Agregar Proyecto
+
 </button>
 
 </form>
@@ -307,15 +252,21 @@ Agregar Proyecto
 <div id="mensaje" class="mt-3"></div>
 
 <h4 class="mt-4">
+
 Total de proyectos:
+
 <span id="total">0</span>
+
 </h4>
+
+<!-- Lista generada desde JavaScript -->
 
 <div id="listaProyectos"></div>
 
 </section>
 
 <!-- CONTACTO -->
+
 <section id="contacto">
 
 <h2 class="text-center mb-4">
@@ -376,8 +327,12 @@ placeholder="Escriba su mensaje"></textarea>
 
 </div>
 
-<button type="submit" class="btn btn-primary">
+<button
+type="submit"
+class="btn btn-primary">
+
 Enviar Mensaje
+
 </button>
 
 </form>
@@ -412,10 +367,13 @@ LinkedIn
 </section>
 
 <!-- VIDEO -->
+
 <section class="text-center">
 
 <h2 class="mb-4">
+
 Video Informativo
+
 </h2>
 
 <div class="ratio ratio-16x9">
@@ -424,6 +382,7 @@ Video Informativo
 src="https://www.youtube.com/embed/iXQYnaMIH7M"
 title="Video ConstructPro"
 allowfullscreen>
+
 </iframe>
 
 </div>
@@ -433,6 +392,7 @@ allowfullscreen>
 </main>
 
 <!-- ASIDE -->
+
 <aside class="container">
 
 <h3>Información Adicional</h3>
@@ -447,7 +407,10 @@ Soporte técnico disponible las 24 horas.
 
 </aside>
 
-<!-- FOOTER -->
+<!-- ===================================== -->
+<!-- BASE.HTML - FOOTER                    -->
+<!-- ===================================== -->
+
 <footer>
 
 <p><strong>Desarrollado por Geovanni Correa</strong></p>
@@ -458,7 +421,8 @@ Soporte técnico disponible las 24 horas.
 
 </footer>
 
-<!-- Bootstrap JS -->
+<!-- Bootstrap -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="script.js"></script>

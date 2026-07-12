@@ -1,3 +1,67 @@
+// ==============================
+// DATOS DE LOS SERVICIOS
+// ==============================
+
+const servicios = [
+
+{
+    titulo: "Gestión de Proyectos",
+    descripcion: "Control integral y administración de obras civiles.",
+    color: "primary"
+},
+
+{
+    titulo: "Control de Recursos",
+    descripcion: "Gestión de materiales, maquinaria y personal.",
+    color: "success"
+},
+
+{
+    titulo: "Reportes Técnicos",
+    descripcion: "Generación automática de informes y seguimiento.",
+    color: "warning"
+}
+
+];
+
+// ==============================
+// MOSTRAR SERVICIOS
+// ==============================
+
+const listaServicios = document.getElementById("listaServicios");
+
+servicios.forEach(servicio => {
+
+    listaServicios.innerHTML += `
+
+    <div class="col-md-4">
+
+        <div class="card m-3">
+
+            <div class="card-body text-center">
+
+                <h5>${servicio.titulo}</h5>
+
+                <p>${servicio.descripcion}</p>
+
+                <button class="btn btn-${servicio.color}">
+                    Ver más
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    `;
+
+});
+
+// ==============================
+// ELEMENTOS DEL FORMULARIO
+// ==============================
+
 const formulario = document.getElementById("formProyecto");
 
 const nombre = document.getElementById("nombre");
@@ -12,56 +76,79 @@ const errorNombre = document.getElementById("errorNombre");
 const errorDescripcion = document.getElementById("errorDescripcion");
 const errorCategoria = document.getElementById("errorCategoria");
 
-let contador = 0;
+// ==============================
+// ARREGLO DE PROYECTOS
+// ==============================
 
-/* =========================
-   VALIDACIONES
-========================= */
+let proyectos = [
 
-function validarNombre() {
+{
+    nombre: "Edificio Central",
+    descripcion: "Construcción de edificio administrativo.",
+    categoria: "Edificación"
+},
 
-    if (nombre.value.trim().length < 3) {
+{
+    nombre: "Puente Norte",
+    descripcion: "Construcción de puente vehicular.",
+    categoria: "Puentes"
+}
+
+];
+
+// ==============================
+// VALIDACIONES
+// ==============================
+
+function validarNombre(){
+
+    if(nombre.value.trim().length < 3){
 
         nombre.classList.add("is-invalid");
         nombre.classList.remove("is-valid");
 
-        errorNombre.textContent = "Debe ingresar mínimo 3 caracteres.";
+        errorNombre.textContent =
+        "Debe ingresar mínimo 3 caracteres.";
 
         return false;
+
     }
 
     nombre.classList.remove("is-invalid");
     nombre.classList.add("is-valid");
 
-    errorNombre.textContent = "";
+    errorNombre.textContent="";
 
     return true;
+
 }
 
-function validarDescripcion() {
+function validarDescripcion(){
 
-    if (descripcion.value.trim().length < 10) {
+    if(descripcion.value.trim().length < 10){
 
         descripcion.classList.add("is-invalid");
         descripcion.classList.remove("is-valid");
 
         errorDescripcion.textContent =
-        "La descripción debe tener al menos 10 caracteres.";
+        "La descripción debe tener mínimo 10 caracteres.";
 
         return false;
+
     }
 
     descripcion.classList.remove("is-invalid");
     descripcion.classList.add("is-valid");
 
-    errorDescripcion.textContent = "";
+    errorDescripcion.textContent="";
 
     return true;
+
 }
 
-function validarCategoria() {
+function validarCategoria(){
 
-    if (categoria.value === "") {
+    if(categoria.value===""){
 
         categoria.classList.add("is-invalid");
         categoria.classList.remove("is-valid");
@@ -70,108 +157,184 @@ function validarCategoria() {
         "Seleccione una categoría.";
 
         return false;
+
     }
 
     categoria.classList.remove("is-invalid");
     categoria.classList.add("is-valid");
 
-    errorCategoria.textContent = "";
+    errorCategoria.textContent="";
 
     return true;
+
 }
 
-/* =========================
-   EVENTOS EN TIEMPO REAL
-========================= */
+// ==============================
+// EVENTOS
+// ==============================
 
-nombre.addEventListener("input", validarNombre);
-descripcion.addEventListener("input", validarDescripcion);
-categoria.addEventListener("change", validarCategoria);
+nombre.addEventListener("input",validarNombre);
+descripcion.addEventListener("input",validarDescripcion);
+categoria.addEventListener("change",validarCategoria);
 
-nombre.addEventListener("blur", validarNombre);
-descripcion.addEventListener("blur", validarDescripcion);
-categoria.addEventListener("blur", validarCategoria);
+nombre.addEventListener("blur",validarNombre);
+descripcion.addEventListener("blur",validarDescripcion);
+categoria.addEventListener("blur",validarCategoria);
 
-/* =========================
-   SUBMIT
-========================= */
+// ==============================
+// MOSTRAR PROYECTOS
+// ==============================
 
-formulario.addEventListener("submit", function(event){
+function mostrarProyectos(){
 
-    event.preventDefault();
+    lista.innerHTML="";
 
-    if (
-        !validarNombre() ||
-        !validarDescripcion() ||
-        !validarCategoria()
-    ) {
+    if(proyectos.length===0){
 
-        mensaje.innerHTML = `
-        <div class="alert alert-danger">
-            Corrija los errores antes de registrar.
-        </div>`;
+        lista.innerHTML=`
 
-        return;
+        <div class="alert alert-warning">
+
+        No existen proyectos registrados.
+
+        </div>
+
+        `;
+
+    }else{
+
+        proyectos.forEach((proyecto,index)=>{
+
+            lista.innerHTML += `
+
+            <div class="card mt-3">
+
+                <div class="card-body">
+
+                    <h5>${proyecto.nombre}</h5>
+
+                    <p>
+
+                    <strong>Descripción:</strong>
+
+                    ${proyecto.descripcion}
+
+                    <br>
+
+                    <strong>Categoría:</strong>
+
+                    ${proyecto.categoria}
+
+                    </p>
+
+                    <button
+                    class="btn btn-danger btn-sm"
+                    onclick="eliminarProyecto(${index})">
+
+                    Eliminar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            `;
+
+        });
+
     }
 
-    mensaje.innerHTML = `
-    <div class="alert alert-success">
-        Proyecto registrado correctamente.
-    </div>`;
+    total.textContent = proyectos.length;
 
-    const card = document.createElement("div");
-    card.className = "card mt-3";
+}
 
-    const body = document.createElement("div");
-    body.className = "card-body";
+// ==============================
+// ELIMINAR PROYECTO
+// ==============================
 
-    const titulo = document.createElement("h5");
-    titulo.className = "card-title";
-    titulo.textContent = nombre.value;
+function eliminarProyecto(indice){
 
-    const texto = document.createElement("p");
-    texto.className = "card-text";
-    texto.innerHTML =
-        "<strong>Descripción:</strong> " + descripcion.value +
-        "<br><strong>Categoría:</strong> " + categoria.value;
+    proyectos.splice(indice,1);
 
-    const boton = document.createElement("button");
-    boton.textContent = "Eliminar";
-    boton.className = "btn btn-danger btn-sm mt-2";
+    mostrarProyectos();
 
-    boton.addEventListener("click", function () {
+}
 
-        card.remove();
+// ==============================
+// REGISTRAR PROYECTO
+// ==============================
 
-        if (contador > 0) {
-            contador--;
-        }
+formulario.addEventListener("submit",function(e){
 
-        total.textContent = contador;
+    e.preventDefault();
+
+    if(
+
+        !validarNombre() ||
+
+        !validarDescripcion() ||
+
+        !validarCategoria()
+
+    ){
+
+        mensaje.innerHTML=`
+
+        <div class="alert alert-danger">
+
+        Corrija los errores antes de registrar.
+
+        </div>
+
+        `;
+
+        return;
+
+    }
+
+    proyectos.push({
+
+        nombre:nombre.value,
+
+        descripcion:descripcion.value,
+
+        categoria:categoria.value
+
     });
 
-    body.appendChild(titulo);
-    body.appendChild(texto);
-    body.appendChild(boton);
+    mostrarProyectos();
 
-    card.appendChild(body);
+    mensaje.innerHTML=`
 
-    lista.appendChild(card);
+    <div class="alert alert-success">
 
-   card.remove();
+    Proyecto registrado correctamente.
 
-contador = lista.children.length;
-total.textContent = contador;
+    </div>
+
+    `;
 
     formulario.reset();
 
-    nombre.classList.remove("is-valid", "is-invalid");
-    descripcion.classList.remove("is-valid", "is-invalid");
-    categoria.classList.remove("is-valid", "is-invalid");
+    nombre.classList.remove("is-valid","is-invalid");
+    descripcion.classList.remove("is-valid","is-invalid");
+    categoria.classList.remove("is-valid","is-invalid");
 
-    errorNombre.textContent = "";
-    errorDescripcion.textContent = "";
-    errorCategoria.textContent = "";
+    errorNombre.textContent="";
+    errorDescripcion.textContent="";
+    errorCategoria.textContent="";
 
-    mensaje.innerHTML = "";
+    setTimeout(()=>{
+
+        mensaje.innerHTML="";
+
+    },3000);
+
 });
+
+// ==============================
+// INICIAR
+// ==============================
+
+mostrarProyectos();
