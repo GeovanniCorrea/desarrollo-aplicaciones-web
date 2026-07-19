@@ -13,19 +13,20 @@ body{
 ========================== */
 
 header{
-    background: linear-gradient(90deg, #0d6efd, #003b8b);
-    color: white;
-    text-align: center;
-    padding: 80px 20px;
+    background: linear-gradient(90deg,#0d6efd,#003b8b);
+    color:white;
+    text-align:center;
+    padding:70px 20px;
 }
 
 header h1{
-    font-size: 3rem;
-    font-weight: bold;
+    font-size:3rem;
+    font-weight:bold;
 }
 
 header p{
-    font-size: 1.2rem;
+    font-size:1.2rem;
+    margin-top:10px;
 }
 
 /* ==========================
@@ -33,7 +34,7 @@ header p{
 ========================== */
 
 .navbar{
-    box-shadow: 0 2px 8px rgba(0,0,0,.2);
+    box-shadow:0 2px 8px rgba(0,0,0,.2);
 }
 
 /* ==========================
@@ -41,23 +42,8 @@ header p{
 ========================== */
 
 section{
-    margin-top: 70px;
-    margin-bottom: 70px;
-}
-
-/* ==========================
-   TARJETAS
-========================== */
-
-.card{
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,.15);
-    transition: all .3s ease;
-}
-
-.card:hover{
-    transform: translateY(-5px);
+    margin-top:60px;
+    margin-bottom:60px;
 }
 
 /* ==========================
@@ -65,7 +51,22 @@ section{
 ========================== */
 
 img{
-    border-radius: 10px;
+    border-radius:10px;
+}
+
+/* ==========================
+   TARJETAS
+========================== */
+
+.card{
+    border:none;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 6px 15px rgba(0,0,0,.15);
 }
 
 /* ==========================
@@ -73,54 +74,10 @@ img{
 ========================== */
 
 form{
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0,0,0,.1);
-}
-
-/* ==========================
-   MENSAJES
-========================== */
-
-.alert{
-    margin-top: 20px;
-}
-
-/* ==========================
-   LISTA DE PROYECTOS
-========================== */
-
-#listaProyectos .card{
-    margin-bottom: 20px;
-}
-
-/* ==========================
-   ASIDE
-========================== */
-
-aside{
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    margin-top: 40px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.1);
-}
-
-/* ==========================
-   FOOTER
-========================== */
-
-footer{
-    background-color: #212529;
-    color: white;
-    text-align: center;
-    padding: 25px;
-    margin-top: 50px;
-}
-
-footer p{
-    margin: 5px;
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,.1);
 }
 
 /* ==========================
@@ -128,46 +85,90 @@ footer p{
 ========================== */
 
 .btn{
-    transition: .3s;
+    transition:.3s;
 }
 
 .btn:hover{
-    transform: scale(1.03);
+    transform:scale(1.03);
+}
+
+/* ==========================
+   SPINNER
+========================== */
+
+#spinnerCarga{
+    margin-top:20px;
+}
+
+/* ==========================
+   MENSAJES
+========================== */
+
+#mensaje{
+    margin-top:20px;
+}
+
+/* ==========================
+   ASIDE
+========================== */
+
+aside{
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    margin-top:50px;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+    background:#212529;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:60px;
+}
+
+footer p{
+    margin:5px;
 }
 
 /* ==========================
    RESPONSIVE
 ========================== */
 
-@media (max-width:768px){
+@media(max-width:768px){
 
     header{
-        padding: 50px 15px;
+        padding:50px 15px;
     }
 
     header h1{
-        font-size: 2rem;
+        font-size:2rem;
     }
 
     header p{
-        font-size: 1rem;
+        font-size:1rem;
     }
 
     section{
-        margin-top: 50px;
-        margin-bottom: 50px;
+        margin-top:40px;
+        margin-bottom:40px;
     }
 
 }
 
-@media (max-width:576px){
+@media(max-width:576px){
 
     header h1{
-        font-size: 1.7rem;
+        font-size:1.6rem;
     }
 
     form{
-        padding: 18px;
+        padding:18px;
     }
 
 }

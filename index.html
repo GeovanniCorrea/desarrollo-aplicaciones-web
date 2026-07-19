@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,22 +15,20 @@
 <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
 
-<!-- ===================================== -->
-<!-- BASE.HTML - HEADER                    -->
-<!-- Esta sección podría formar parte de   -->
-<!-- una plantilla base.html               -->
-<!-- ===================================== -->
+<!-- HEADER -->
 
 <header>
-    <h1>ConstructPro</h1>
-    <p>Sistema de gestión y control de proyectos de construcción civil</p>
+
+<h1>ConstructPro</h1>
+
+<p>Sistema de gestión y control de proyectos de construcción civil</p>
+
 </header>
 
-<!-- ===================================== -->
-<!-- BASE.HTML - NAVBAR                    -->
-<!-- ===================================== -->
+<!-- NAVBAR -->
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
@@ -79,39 +78,36 @@ data-bs-target="#menu">
 
 </nav>
 
-<!-- ===================================== -->
-<!-- CONTENIDO PRINCIPAL                   -->
-<!-- Esta sección sería el bloque de       -->
-<!-- contenido dinámico de base.html       -->
-<!-- ===================================== -->
-
 <main class="container">
 
 <!-- INICIO -->
 
-<section id="inicio" class="text-center p-5">
+<section id="inicio" class="text-center py-5">
 
 <h2>Inicio</h2>
 
 <p>
-Bienvenido a ConstructPro, una plataforma diseñada para optimizar la gestión,
-planificación y seguimiento de proyectos de construcción civil.
-Nuestro sistema facilita el control de recursos, materiales y actividades,
-mejorando la productividad y eficiencia en cada obra.
+
+Bienvenido a ConstructPro, una plataforma diseñada para optimizar la gestión y seguimiento de proyectos de construcción civil.
+
 </p>
 
 <a href="#contacto" class="btn btn-primary btn-lg">
+
 Solicitar Información
+
 </a>
 
 </section>
 
-<!-- QUIÉNES SOMOS -->
+<!-- QUIENES SOMOS -->
 
 <section id="quienes-somos">
 
 <h2 class="text-center mb-4">
+
 Quiénes Somos
+
 </h2>
 
 <div class="row align-items-center">
@@ -119,33 +115,28 @@ Quiénes Somos
 <div class="col-md-6">
 
 <img
+
 src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80"
-alt="Construcción civil"
-class="img-fluid shadow">
+
+class="img-fluid rounded shadow"
+
+alt="Construcción">
 
 </div>
 
 <div class="col-md-6">
 
-<article>
-
 <p>
-ConstructPro es un sistema web desarrollado para apoyar a empresas constructoras,
-ingenieros y profesionales del sector de la construcción en la administración de
-sus proyectos.
+
+ConstructPro es un sistema orientado a apoyar la administración y control de proyectos de construcción.
+
 </p>
 
 <p>
-La plataforma permite organizar actividades, controlar recursos, supervisar el
-avance de las obras y generar reportes de manera eficiente.
-</p>
 
-<p>
-Nuestro objetivo es brindar una solución tecnológica que facilite la toma de
-decisiones, optimice recursos y contribuya al cumplimiento de plazos establecidos.
-</p>
+Facilita el seguimiento de actividades, materiales y recursos para mejorar la organización de cada obra.
 
-</article>
+</p>
 
 </div>
 
@@ -158,10 +149,10 @@ decisiones, optimice recursos y contribuya al cumplimiento de plazos establecido
 <section id="servicios">
 
 <h2 class="text-center mb-4">
-Servicios
-</h2>
 
-<!-- Contenido generado dinámicamente desde JavaScript -->
+Servicios
+
+</h2>
 
 <div id="listaServicios" class="row">
 
@@ -169,61 +160,57 @@ Servicios
 
 </section>
 
-<!-- REGISTRO DE PROYECTOS -->
+<!-- PROYECTOS -->
 
 <section id="proyectos">
 
 <h2 class="text-center mb-4">
+
 Registro de Proyectos
+
 </h2>
 
 <form id="formProyecto">
 
-<div class="mb-3">
+<div class="row">
+
+<div class="col-md-6 mb-3">
 
 <label class="form-label">
+
 Nombre del Proyecto
+
 </label>
 
 <input
+
 type="text"
-class="form-control"
+
 id="nombre"
-placeholder="Ingrese el nombre del proyecto">
+
+class="form-control"
+
+placeholder="Ingrese el nombre">
 
 <div id="errorNombre" class="invalid-feedback"></div>
 
 </div>
 
-<div class="mb-3">
+<div class="col-md-6 mb-3">
 
 <label class="form-label">
-Descripción
-</label>
 
-<textarea
-class="form-control"
-id="descripcion"
-rows="3"
-placeholder="Ingrese la descripción"></textarea>
-
-<div id="errorDescripcion" class="invalid-feedback"></div>
-
-</div>
-
-<div class="mb-3">
-
-<label class="form-label">
 Categoría
+
 </label>
 
 <select
-class="form-select"
-id="categoria">
 
-<option value="">
-Seleccione
-</option>
+id="categoria"
+
+class="form-select">
+
+<option value="">Seleccione</option>
 
 <option>Edificación</option>
 
@@ -239,9 +226,33 @@ Seleccione
 
 </div>
 
-<button
-type="submit"
-class="btn btn-primary">
+</div>
+
+<div class="mb-3">
+
+<label class="form-label">
+
+Descripción
+
+</label>
+
+<textarea
+
+id="descripcion"
+
+class="form-control"
+
+rows="4"
+
+placeholder="Ingrese una descripción">
+
+</textarea>
+
+<div id="errorDescripcion" class="invalid-feedback"></div>
+
+</div>
+
+<button type="submit" class="btn btn-success">
 
 Agregar Proyecto
 
@@ -249,7 +260,25 @@ Agregar Proyecto
 
 </form>
 
-<div id="mensaje" class="mt-3"></div>
+<!-- Spinner -->
+
+<div id="spinnerCarga" class="text-center mt-3" style="display:none;">
+
+<div class="spinner-border text-primary" role="status">
+
+<span class="visually-hidden">
+
+Cargando...
+
+</span>
+
+</div>
+
+<p>Registrando proyecto...</p>
+
+</div>
+
+<div id="mensaje"></div>
 
 <h4 class="mt-4">
 
@@ -258,8 +287,6 @@ Total de proyectos:
 <span id="total">0</span>
 
 </h4>
-
-<!-- Lista generada desde JavaScript -->
 
 <div id="listaProyectos"></div>
 
@@ -270,7 +297,9 @@ Total de proyectos:
 <section id="contacto">
 
 <h2 class="text-center mb-4">
+
 Contacto
+
 </h2>
 
 <form>
@@ -278,91 +307,60 @@ Contacto
 <div class="mb-3">
 
 <label class="form-label">
+
 Nombre
+
 </label>
 
 <input
+
 type="text"
-class="form-control"
-placeholder="Ingrese su nombre">
+
+class="form-control">
 
 </div>
 
 <div class="mb-3">
 
 <label class="form-label">
-Correo Electrónico
+
+Correo
+
 </label>
 
 <input
+
 type="email"
-class="form-control"
-placeholder="ejemplo@correo.com">
+
+class="form-control">
 
 </div>
 
 <div class="mb-3">
 
 <label class="form-label">
-Asunto
-</label>
 
-<input
-type="text"
-class="form-control"
-placeholder="Ingrese el asunto">
-
-</div>
-
-<div class="mb-3">
-
-<label class="form-label">
 Mensaje
+
 </label>
 
 <textarea
+
 class="form-control"
-rows="4"
-placeholder="Escriba su mensaje"></textarea>
+
+rows="4">
+
+</textarea>
 
 </div>
 
-<button
-type="submit"
-class="btn btn-primary">
+<button class="btn btn-primary">
 
-Enviar Mensaje
+Enviar
 
 </button>
 
 </form>
-
-<div class="mt-4">
-
-<a href="mailto:gj.correas@constructpro.com"
-class="btn btn-danger m-1">
-Correo
-</a>
-
-<a href="https://www.facebook.com"
-target="_blank"
-class="btn btn-primary m-1">
-Facebook
-</a>
-
-<a href="https://www.instagram.com"
-target="_blank"
-class="btn btn-warning m-1">
-Instagram
-</a>
-
-<a href="https://www.linkedin.com"
-target="_blank"
-class="btn btn-info m-1">
-LinkedIn
-</a>
-
-</div>
 
 </section>
 
@@ -379,8 +377,9 @@ Video Informativo
 <div class="ratio ratio-16x9">
 
 <iframe
+
 src="https://www.youtube.com/embed/iXQYnaMIH7M"
-title="Video ConstructPro"
+
 allowfullscreen>
 
 </iframe>
@@ -391,25 +390,17 @@ allowfullscreen>
 
 </main>
 
-<!-- ASIDE -->
-
-<aside class="container">
+<aside class="container mt-5">
 
 <h3>Información Adicional</h3>
 
 <p>
-Horario de atención: Lunes a Viernes de 08:00 a 17:00.
-</p>
 
-<p>
-Soporte técnico disponible las 24 horas.
+Horario de atención: Lunes a Viernes de 08:00 a 17:00.
+
 </p>
 
 </aside>
-
-<!-- ===================================== -->
-<!-- BASE.HTML - FOOTER                    -->
-<!-- ===================================== -->
 
 <footer>
 
@@ -417,9 +408,67 @@ Soporte técnico disponible las 24 horas.
 
 <p>Desarrollo de Aplicaciones Web</p>
 
-<p>Año: 2026</p>
+<p>2026</p>
 
 </footer>
+
+<!-- MODAL -->
+
+<div class="modal fade" id="modalInfo" tabindex="-1">
+
+<div class="modal-dialog">
+
+<div class="modal-content">
+
+<div class="modal-header">
+
+<h5 class="modal-title">
+
+Información del Servicio
+
+</h5>
+
+<button
+
+type="button"
+
+class="btn-close"
+
+data-bs-dismiss="modal">
+
+</button>
+
+</div>
+
+<div class="modal-body">
+
+<p>
+
+ConstructPro permite administrar proyectos, recursos y actividades de construcción mediante una plataforma sencilla y organizada.
+
+</p>
+
+</div>
+
+<div class="modal-footer">
+
+<button
+
+class="btn btn-secondary"
+
+data-bs-dismiss="modal">
+
+Cerrar
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 <!-- Bootstrap -->
 
@@ -429,3 +478,4 @@ Soporte técnico disponible las 24 horas.
 
 </body>
 </html>
+```

@@ -1,12 +1,12 @@
 // ==============================
-// DATOS DE LOS SERVICIOS
+// SERVICIOS
 // ==============================
 
 const servicios = [
 
 {
     titulo: "Gestión de Proyectos",
-    descripcion: "Control integral y administración de obras civiles.",
+    descripcion: "Control y administración de obras civiles.",
     color: "primary"
 },
 
@@ -18,7 +18,7 @@ const servicios = [
 
 {
     titulo: "Reportes Técnicos",
-    descripcion: "Generación automática de informes y seguimiento.",
+    descripcion: "Generación de informes y seguimiento de obras.",
     color: "warning"
 }
 
@@ -34,18 +34,23 @@ servicios.forEach(servicio => {
 
     listaServicios.innerHTML += `
 
-    <div class="col-md-4">
+    <div class="col-md-4 mb-4">
 
-        <div class="card m-3">
+        <div class="card h-100 shadow">
 
             <div class="card-body text-center">
 
-                <h5>${servicio.titulo}</h5>
+                <h5 class="card-title">${servicio.titulo}</h5>
 
-                <p>${servicio.descripcion}</p>
+                <p class="card-text">${servicio.descripcion}</p>
 
-                <button class="btn btn-${servicio.color}">
+                <button
+                    class="btn btn-${servicio.color}"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalInfo">
+
                     Ver más
+
                 </button>
 
             </div>
@@ -76,8 +81,10 @@ const errorNombre = document.getElementById("errorNombre");
 const errorDescripcion = document.getElementById("errorDescripcion");
 const errorCategoria = document.getElementById("errorCategoria");
 
+const spinner = document.getElementById("spinnerCarga");
+
 // ==============================
-// ARREGLO DE PROYECTOS
+// PROYECTOS
 // ==============================
 
 let proyectos = [
@@ -107,17 +114,15 @@ function validarNombre(){
         nombre.classList.add("is-invalid");
         nombre.classList.remove("is-valid");
 
-        errorNombre.textContent =
-        "Debe ingresar mínimo 3 caracteres.";
+        errorNombre.textContent = "Debe ingresar mínimo 3 caracteres.";
 
         return false;
-
     }
 
     nombre.classList.remove("is-invalid");
     nombre.classList.add("is-valid");
 
-    errorNombre.textContent="";
+    errorNombre.textContent = "";
 
     return true;
 
@@ -130,17 +135,15 @@ function validarDescripcion(){
         descripcion.classList.add("is-invalid");
         descripcion.classList.remove("is-valid");
 
-        errorDescripcion.textContent =
-        "La descripción debe tener mínimo 10 caracteres.";
+        errorDescripcion.textContent = "La descripción debe tener mínimo 10 caracteres.";
 
         return false;
-
     }
 
     descripcion.classList.remove("is-invalid");
     descripcion.classList.add("is-valid");
 
-    errorDescripcion.textContent="";
+    errorDescripcion.textContent = "";
 
     return true;
 
@@ -148,22 +151,20 @@ function validarDescripcion(){
 
 function validarCategoria(){
 
-    if(categoria.value===""){
+    if(categoria.value === ""){
 
         categoria.classList.add("is-invalid");
         categoria.classList.remove("is-valid");
 
-        errorCategoria.textContent =
-        "Seleccione una categoría.";
+        errorCategoria.textContent = "Seleccione una categoría.";
 
         return false;
-
     }
 
     categoria.classList.remove("is-invalid");
     categoria.classList.add("is-valid");
 
-    errorCategoria.textContent="";
+    errorCategoria.textContent = "";
 
     return true;
 
@@ -173,13 +174,9 @@ function validarCategoria(){
 // EVENTOS
 // ==============================
 
-nombre.addEventListener("input",validarNombre);
-descripcion.addEventListener("input",validarDescripcion);
-categoria.addEventListener("change",validarCategoria);
-
-nombre.addEventListener("blur",validarNombre);
-descripcion.addEventListener("blur",validarDescripcion);
-categoria.addEventListener("blur",validarCategoria);
+nombre.addEventListener("input", validarNombre);
+descripcion.addEventListener("input", validarDescripcion);
+categoria.addEventListener("change", validarCategoria);
 
 // ==============================
 // MOSTRAR PROYECTOS
@@ -187,15 +184,15 @@ categoria.addEventListener("blur",validarCategoria);
 
 function mostrarProyectos(){
 
-    lista.innerHTML="";
+    lista.innerHTML = "";
 
-    if(proyectos.length===0){
+    if(proyectos.length === 0){
 
-        lista.innerHTML=`
+        lista.innerHTML = `
 
         <div class="alert alert-warning">
 
-        No existen proyectos registrados.
+            No existen proyectos registrados.
 
         </div>
 
@@ -203,11 +200,11 @@ function mostrarProyectos(){
 
     }else{
 
-        proyectos.forEach((proyecto,index)=>{
+        proyectos.forEach((proyecto, index)=>{
 
             lista.innerHTML += `
 
-            <div class="card mt-3">
+            <div class="card shadow mt-3">
 
                 <div class="card-body">
 
@@ -215,20 +212,20 @@ function mostrarProyectos(){
 
                     <p>
 
-                    <strong>Descripción:</strong>
+                        <strong>Descripción:</strong>
+                        ${proyecto.descripcion}
 
-                    ${proyecto.descripcion}
+                    </p>
 
-                    <br>
+                    <p>
 
-                    <strong>Categoría:</strong>
-
-                    ${proyecto.categoria}
+                        <strong>Categoría:</strong>
+                        ${proyecto.categoria}
 
                     </p>
 
                     <button
-                    class="btn btn-danger btn-sm"
+                    class="btn btn-outline-danger btn-sm"
                     onclick="eliminarProyecto(${index})">
 
                     Eliminar
@@ -250,7 +247,7 @@ function mostrarProyectos(){
 }
 
 // ==============================
-// ELIMINAR PROYECTO
+// ELIMINAR
 // ==============================
 
 function eliminarProyecto(indice){
@@ -262,7 +259,7 @@ function eliminarProyecto(indice){
 }
 
 // ==============================
-// REGISTRAR PROYECTO
+// REGISTRAR
 // ==============================
 
 formulario.addEventListener("submit",function(e){
@@ -279,11 +276,11 @@ formulario.addEventListener("submit",function(e){
 
     ){
 
-        mensaje.innerHTML=`
+        mensaje.innerHTML = `
 
         <div class="alert alert-danger">
 
-        Corrija los errores antes de registrar.
+        Corrija los errores antes de continuar.
 
         </div>
 
@@ -293,48 +290,56 @@ formulario.addEventListener("submit",function(e){
 
     }
 
-    proyectos.push({
-
-        nombre:nombre.value,
-
-        descripcion:descripcion.value,
-
-        categoria:categoria.value
-
-    });
-
-    mostrarProyectos();
-
-    mensaje.innerHTML=`
-
-    <div class="alert alert-success">
-
-    Proyecto registrado correctamente.
-
-    </div>
-
-    `;
-
-    formulario.reset();
-
-    nombre.classList.remove("is-valid","is-invalid");
-    descripcion.classList.remove("is-valid","is-invalid");
-    categoria.classList.remove("is-valid","is-invalid");
-
-    errorNombre.textContent="";
-    errorDescripcion.textContent="";
-    errorCategoria.textContent="";
+    spinner.style.display = "block";
 
     setTimeout(()=>{
 
-        mensaje.innerHTML="";
+        proyectos.push({
 
-    },3000);
+            nombre:nombre.value,
+
+            descripcion:descripcion.value,
+
+            categoria:categoria.value
+
+        });
+
+        mostrarProyectos();
+
+        spinner.style.display = "none";
+
+        mensaje.innerHTML = `
+
+        <div class="alert alert-success">
+
+        Proyecto registrado correctamente.
+
+        </div>
+
+        `;
+
+        formulario.reset();
+
+        nombre.classList.remove("is-valid","is-invalid");
+        descripcion.classList.remove("is-valid","is-invalid");
+        categoria.classList.remove("is-valid","is-invalid");
+
+        errorNombre.textContent="";
+        errorDescripcion.textContent="";
+        errorCategoria.textContent="";
+
+        setTimeout(()=>{
+
+            mensaje.innerHTML="";
+
+        },3000);
+
+    },1500);
 
 });
 
 // ==============================
-// INICIAR
+// INICIO
 // ==============================
 
 mostrarProyectos();
