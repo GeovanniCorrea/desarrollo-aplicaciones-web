@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}Nuevo Producto - ConstructPro{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h2 class="text-center mb-4">
+                Registrar producto
+            </h2>
+
+            <form method="POST">
+
+                {{ form.hidden_tag() }}
+
+                <div class="mb-3">
+
+                    {{ form.nombre.label(class="form-label") }}
+
+                    {{ form.nombre(class="form-control") }}
+
+                    {% for error in form.nombre.errors %}
+                        <div class="text-danger">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    {{ form.categoria.label(class="form-label") }}
+
+                    {{ form.categoria(class="form-control") }}
+
+                    {% for error in form.categoria.errors %}
+                        <div class="text-danger">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    {{ form.unidad.label(class="form-label") }}
+
+                    {{ form.unidad(class="form-control") }}
+
+                    {% for error in form.unidad.errors %}
+                        <div class="text-danger">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    {{ form.stock.label(class="form-label") }}
+
+                    {{ form.stock(class="form-control") }}
+
+                    {% for error in form.stock.errors %}
+                        <div class="text-danger">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+
+                <div class="text-center">
+
+                    {{ form.submit(class="btn btn-primary") }}
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+

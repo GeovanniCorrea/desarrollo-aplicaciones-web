@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Nueva Facturación - ConstructPro{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h2 class="text-center mb-4">
+                Registrar factura
+            </h2>
+
+            <form method="POST">
+
+                {{ form.hidden_tag() }}
+
+                <div class="mb-3">
+
+                    {{ form.numero.label(class="form-label") }}
+
+                    {{ form.numero(class="form-control") }}
+
+                    {% for error in form.numero.errors %}
+                        <div class="text-danger">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    {{ form.cliente.label(class="form-label") }}
+
+                    {{ form.cliente(class="form-control") }}
+
+                    {% for error in form.cliente.errors %}
+                        <div class="text-danger">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    {{ form.proyecto.label(class="form-label") }}
+
+                    {{ form.proyecto(class="form-control") }}
+
+                    {% for error in form.proyecto.errors %}
+                        <div class="text-danger">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    {{ form.fecha.label(class="form-label") }}
+
+                    {{ form.fecha(class="form-control") }}
+
+                    {% for error in form.fecha.errors %}
+                        <div class="text-danger">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    {{ form.total.label(class="form-label") }}
+
+                    {{ form.total(class="form-control") }}
+
+                    {% for error in form.total.errors %}
+                        <div class="text-danger">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+
+                <div class="text-center">
+
+                    {{ form.submit(class="btn btn-primary") }}
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
