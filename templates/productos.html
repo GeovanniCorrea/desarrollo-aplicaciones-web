@@ -7,61 +7,68 @@
 <section class="py-5">
 
     <h2 class="text-center mb-4">
-        Productos
-    </h2>
+    {{ titulo }}
+</h2>
 
     <p class="text-center">
-        Registro de materiales utilizados en los proyectos de construcción.
-    </p>
+    {{ titulo|upper }}
+</p>
 
     <div class="table-responsive">
 
         <table class="table table-bordered table-striped">
 
-            <thead class="table-dark">
+    <thead class="table-dark">
 
-                <tr>
-                    <th>Producto</th>
-                    <th>Categoría</th>
-                    <th>Unidad</th>
-                    <th>Stock</th>
-                </tr>
+        <tr>
+            <th>Producto</th>
+            <th>Categoría</th>
+            <th>Unidad</th>
+            <th>Stock</th>
+            <th>Estado</th>
+        </tr>
 
-            </thead>
+    </thead>
 
-            <tbody>
+    <tbody>
 
-                <tr>
-                    <td>Cemento</td>
-                    <td>Materiales</td>
-                    <td>Quintal</td>
-                    <td>150</td>
-                </tr>
+        {% for producto in productos %}
 
-                <tr>
-                    <td>Acero</td>
-                    <td>Estructura</td>
-                    <td>Quintal</td>
-                    <td>80</td>
-                </tr>
+        <tr>
 
-                <tr>
-                    <td>Arena</td>
-                    <td>Materiales</td>
-                    <td>m³</td>
-                    <td>50</td>
-                </tr>
+            <td>{{ producto.nombre }}</td>
 
-                <tr>
-                    <td>Grava</td>
-                    <td>Materiales</td>
-                    <td>m³</td>
-                    <td>40</td>
-                </tr>
+            <td>{{ producto.categoria }}</td>
 
-            </tbody>
+            <td>{{ producto.unidad }}</td>
 
-        </table>
+            <td>{{ producto.stock }}</td>
+
+            <td>
+
+                {% if producto.stock > 0 %}
+
+                    <span class="badge bg-success">
+                        Disponible
+                    </span>
+
+                {% else %}
+
+                    <span class="badge bg-danger">
+                        Agotado
+                    </span>
+
+                {% endif %}
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
 
     </div>
 
