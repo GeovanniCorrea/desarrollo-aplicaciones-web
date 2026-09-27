@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Facturación - ConstructPro{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <h2 class="text-center mb-4">
+        Facturación
+    </h2>
+
+    <p class="text-center">
+        Registro de facturas relacionadas con los proyectos de construcción.
+    </p>
+
+    <div class="table-responsive">
+
+        <table class="table table-bordered table-striped">
+
+            <thead class="table-dark">
+
+                <tr>
+                    <th>Número</th>
+                    <th>Cliente</th>
+                    <th>Proyecto</th>
+                    <th>Fecha</th>
+                    <th>Total</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>001-001-000001</td>
+                    <td>Juan Pérez</td>
+                    <td>Edificio Central</td>
+                    <td>05/09/2026</td>
+                    <td>$1.500,00</td>
+                </tr>
+
+                <tr>
+                    <td>001-001-000002</td>
+                    <td>María López</td>
+                    <td>Puente Norte</td>
+                    <td>10/09/2026</td>
+                    <td>$2.800,00</td>
+                </tr>
+
+                <tr>
+                    <td>001-001-000003</td>
+                    <td>Carlos Ramírez</td>
+                    <td>Puente San Lorenzo</td>
+                    <td>15/09/2026</td>
+                    <td>$3.200,00</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+{% endblock %}

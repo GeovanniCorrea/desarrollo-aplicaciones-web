@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Productos - ConstructPro{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <h2 class="text-center mb-4">
+        Productos
+    </h2>
+
+    <p class="text-center">
+        Registro de materiales utilizados en los proyectos de construcción.
+    </p>
+
+    <div class="table-responsive">
+
+        <table class="table table-bordered table-striped">
+
+            <thead class="table-dark">
+
+                <tr>
+                    <th>Producto</th>
+                    <th>Categoría</th>
+                    <th>Unidad</th>
+                    <th>Stock</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Cemento</td>
+                    <td>Materiales</td>
+                    <td>Quintal</td>
+                    <td>150</td>
+                </tr>
+
+                <tr>
+                    <td>Acero</td>
+                    <td>Estructura</td>
+                    <td>Quintal</td>
+                    <td>80</td>
+                </tr>
+
+                <tr>
+                    <td>Arena</td>
+                    <td>Materiales</td>
+                    <td>m³</td>
+                    <td>50</td>
+                </tr>
+
+                <tr>
+                    <td>Grava</td>
+                    <td>Materiales</td>
+                    <td>m³</td>
+                    <td>40</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+{% endblock %}
