@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Proveedores - ConstructPro{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <h2 class="text-center mb-4">
+        Proveedores
+    </h2>
+
+    <p class="text-center">
+        Registro de proveedores de materiales y servicios para los proyectos.
+    </p>
+
+    <div class="table-responsive">
+
+        <table class="table table-bordered table-striped">
+
+            <thead class="table-dark">
+
+                <tr>
+                    <th>Proveedor</th>
+                    <th>Producto o Servicio</th>
+                    <th>Teléfono</th>
+                    <th>Ciudad</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Materiales El Constructor</td>
+                    <td>Cemento y materiales</td>
+                    <td>0994567890</td>
+                    <td>Gualaquiza</td>
+                </tr>
+
+                <tr>
+                    <td>Acero Ecuador</td>
+                    <td>Acero y estructuras</td>
+                    <td>0983214567</td>
+                    <td>Cuenca</td>
+                </tr>
+
+                <tr>
+                    <td>Transportes del Sur</td>
+                    <td>Transporte de materiales</td>
+                    <td>0976543210</td>
+                    <td>Morona Santiago</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+{% endblock %}

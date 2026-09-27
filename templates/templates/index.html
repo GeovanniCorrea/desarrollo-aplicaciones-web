@@ -1,0 +1,316 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio - ConstructPro{% endblock %}
+
+{% block content %}
+
+<section id="inicio" class="text-center py-5">
+
+    <h2>Inicio</h2>
+
+    <p>
+        Bienvenido a ConstructPro, una plataforma diseñada para optimizar
+        la gestión y seguimiento de proyectos de construcción civil.
+    </p>
+
+    <a href="#contacto" class="btn btn-primary btn-lg">
+        Solicitar Información
+    </a>
+
+</section>
+
+
+<section id="quienes-somos">
+
+    <h2 class="text-center mb-4">
+        Quiénes Somos
+    </h2>
+
+    <div class="row align-items-center">
+
+        <div class="col-md-6">
+
+            <img
+                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80"
+                class="img-fluid rounded shadow"
+                alt="Construcción">
+
+        </div>
+
+        <div class="col-md-6">
+
+            <p>
+                ConstructPro es un sistema orientado a apoyar la administración
+                y control de proyectos de construcción.
+            </p>
+
+            <p>
+                Facilita el seguimiento de actividades, materiales y recursos
+                para mejorar la organización de cada obra.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="servicios">
+
+    <h2 class="text-center mb-4">
+        Servicios
+    </h2>
+
+    <div id="listaServicios" class="row">
+    </div>
+
+</section>
+
+
+<section id="proyectos">
+
+    <h2 class="text-center mb-4">
+        Registro de Proyectos
+    </h2>
+
+    <form id="formProyecto">
+
+        <div class="row">
+
+            <div class="col-md-6 mb-3">
+
+                <label class="form-label">
+                    Nombre del Proyecto
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    class="form-control"
+                    placeholder="Ingrese el nombre">
+
+                <div id="errorNombre" class="invalid-feedback"></div>
+
+            </div>
+
+
+            <div class="col-md-6 mb-3">
+
+                <label class="form-label">
+                    Categoría
+                </label>
+
+                <select
+                    id="categoria"
+                    class="form-select">
+
+                    <option value="">Seleccione</option>
+                    <option>Edificación</option>
+                    <option>Carreteras</option>
+                    <option>Puentes</option>
+                    <option>Vivienda</option>
+
+                </select>
+
+                <div id="errorCategoria" class="invalid-feedback"></div>
+
+            </div>
+
+        </div>
+
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Descripción
+            </label>
+
+            <textarea
+                id="descripcion"
+                class="form-control"
+                rows="4"
+                placeholder="Ingrese una descripción">
+            </textarea>
+
+            <div id="errorDescripcion" class="invalid-feedback"></div>
+
+        </div>
+
+
+        <button type="submit" class="btn btn-success">
+            Agregar Proyecto
+        </button>
+
+    </form>
+
+
+    <div
+        id="spinnerCarga"
+        class="text-center mt-3"
+        style="display:none;">
+
+        <div class="spinner-border text-primary" role="status">
+
+            <span class="visually-hidden">
+                Cargando...
+            </span>
+
+        </div>
+
+        <p>Registrando proyecto...</p>
+
+    </div>
+
+
+    <div id="mensaje"></div>
+
+
+    <h4 class="mt-4">
+        Total de proyectos:
+        <span id="total">0</span>
+    </h4>
+
+    <div id="listaProyectos"></div>
+
+</section>
+
+
+<section id="contacto">
+
+    <h2 class="text-center mb-4">
+        Contacto
+    </h2>
+
+    <form>
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Nombre
+            </label>
+
+            <input
+                type="text"
+                class="form-control">
+
+        </div>
+
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Correo
+            </label>
+
+            <input
+                type="email"
+                class="form-control">
+
+        </div>
+
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Mensaje
+            </label>
+
+            <textarea
+                class="form-control"
+                rows="4">
+            </textarea>
+
+        </div>
+
+
+        <button class="btn btn-primary">
+            Enviar
+        </button>
+
+    </form>
+
+</section>
+
+
+<section class="text-center">
+
+    <h2 class="mb-4">
+        Video Informativo
+    </h2>
+
+    <div class="ratio ratio-16x9">
+
+        <iframe
+            src="https://www.youtube.com/embed/iXQYnaMIH7M"
+            allowfullscreen>
+        </iframe>
+
+    </div>
+
+</section>
+
+
+<aside class="container mt-5">
+
+    <h3>Información Adicional</h3>
+
+    <p>
+        Horario de atención: Lunes a Viernes de 08:00 a 17:00.
+    </p>
+
+</aside>
+
+
+<div class="modal fade" id="modalInfo" tabindex="-1">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Información del Servicio
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+
+            <div class="modal-body">
+
+                <p>
+                    ConstructPro permite administrar proyectos, recursos
+                    y actividades de construcción mediante una plataforma
+                    sencilla y organizada.
+                </p>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    Cerrar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
