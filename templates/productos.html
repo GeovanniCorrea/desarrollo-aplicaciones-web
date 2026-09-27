@@ -7,68 +7,84 @@
 <section class="py-5">
 
     <h2 class="text-center mb-4">
-    {{ titulo }}
-</h2>
-
-    <p class="text-center">
-    {{ titulo|upper }}
-</p>
+        {{ titulo }}
+    </h2>
 
     <div class="table-responsive">
 
         <table class="table table-bordered table-striped">
 
-    <thead class="table-dark">
+            <thead class="table-dark">
 
-        <tr>
-            <th>Producto</th>
-            <th>Categoría</th>
-            <th>Unidad</th>
-            <th>Stock</th>
-            <th>Estado</th>
-        </tr>
+                <tr>
+                    <th>Producto</th>
+                    <th>Categoría</th>
+                    <th>Unidad</th>
+                    <th>Stock</th>
+                    <th>Estado</th>
+                </tr>
 
-    </thead>
+            </thead>
 
-    <tbody>
+            <tbody>
 
-        {% for producto in productos %}
+                {% for producto in productos %}
 
-        <tr>
+                <tr>
 
-            <td>{{ producto.nombre }}</td>
+                    <td>{{ producto.nombre }}</td>
 
-            <td>{{ producto.categoria }}</td>
+                    <td>{{ producto.categoria }}</td>
 
-            <td>{{ producto.unidad }}</td>
+                    <td>{{ producto.unidad }}</td>
 
-            <td>{{ producto.stock }}</td>
+                    <td>{{ producto.stock }}</td>
 
-            <td>
+                    <td>
 
-                {% if producto.stock > 0 %}
+                        {% if producto.stock > 0 %}
 
-                    <span class="badge bg-success">
-                        Disponible
-                    </span>
+                            <span class="badge bg-success">
+                                Disponible
+                            </span>
+
+                        {% else %}
+
+                            <span class="badge bg-danger">
+                                Agotado
+                            </span>
+
+                        {% endif %}
+
+                    </td>
+
+                </tr>
 
                 {% else %}
 
-                    <span class="badge bg-danger">
-                        Agotado
-                    </span>
+                <tr>
 
-                {% endif %}
+                    <td colspan="5" class="text-center">
+                        No hay productos registrados.
+                    </td>
 
-            </td>
+                </tr>
 
-        </tr>
+                {% endfor %}
 
-        {% endfor %}
+            </tbody>
 
-    </tbody>
+        </table>
 
-</table>
+    </div>
+
+    <div class="text-center mt-4">
+
+        <a
+            href="{{ url_for('nuevo_producto') }}"
+            class="btn btn-primary">
+            Registrar nuevo producto
+        </a>
 
     </div>
 
