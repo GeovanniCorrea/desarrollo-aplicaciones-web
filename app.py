@@ -10,7 +10,41 @@ def inicio():
 
 @app.route("/productos")
 def productos():
-    return render_template("productos.html")
+
+    productos = [
+        {
+            "nombre": "Cemento",
+            "categoria": "Materiales",
+            "unidad": "Quintal",
+            "stock": 150
+        },
+        {
+            "nombre": "Acero",
+            "categoria": "Estructura",
+            "unidad": "Quintal",
+            "stock": 80
+        },
+        {
+            "nombre": "Arena",
+            "categoria": "Materiales",
+            "unidad": "m³",
+            "stock": 50
+        },
+        {
+            "nombre": "Grava",
+            "categoria": "Materiales",
+            "unidad": "m³",
+            "stock": 0
+        }
+    ]
+
+    titulo = "Inventario de materiales"
+
+    return render_template(
+        "productos.html",
+        productos=productos,
+        titulo=titulo
+    )
 
 
 @app.route("/clientes")
